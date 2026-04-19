@@ -13,7 +13,7 @@ import time
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="ChurnGuard AI | Customer Retention Dashboard",
+    page_title="Airtel Churn Sentinel | Retention AI",
     page_icon="📉",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -25,44 +25,44 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
     
     .main {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        background: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #000000 100%);
         color: #ffffff;
     }
     .stMetric {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 0, 0, 0.05);
         padding: 20px;
         border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 0, 0, 0.1);
         backdrop-filter: blur(10px);
         transition: transform 0.3s ease;
     }
     .stMetric:hover {
         transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 0, 0, 0.1);
     }
     h1, h2, h3 {
         font-family: 'Orbitron', sans-serif;
-        color: #00d2ff;
-        text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        color: #ff4b2b;
+        text-shadow: 0 0 10px rgba(255, 75, 43, 0.5);
     }
     .report-title {
         font-size: 3rem;
         font-weight: 700;
         text-align: center;
         margin-bottom: 2rem;
-        background: -webkit-linear-gradient(#00d2ff, #3a7bd5);
+        background: -webkit-linear-gradient(#ff4b2b, #ff0000);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     .stButton>button {
-        background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+        background: linear-gradient(45deg, #ff4b2b, #ff0000);
         color: white;
         border: none;
         border-radius: 25px;
         padding: 10px 25px;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
     }
     .stButton>button:hover {
         transform: scale(1.05);
@@ -127,8 +127,8 @@ def preprocess_data(df):
     return data
 
 # --- Sidebar ---
-st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2103/2103633.png", width=100)
-st.sidebar.title("🎛️ Analytics Core")
+st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3658/3658959.png", width=100) # Red-themed icon
+st.sidebar.title("🔴 Airtel Sentinel")
 menu = st.sidebar.radio("Navigate System", ["Live Operational Center", "Dashboard Overview", "Exploratory Analysis", "AI Prediction Model", "Customer Risk Profiler"])
 
 # --- Load Data ---
@@ -151,9 +151,9 @@ if menu == "Live Operational Center":
         """, unsafe_allow_html=True)
     with c2:
         st.markdown(f"""
-            <div style="background: rgba(0, 210, 255, 0.1); border: 1px solid #00d2ff; padding: 10px; border-radius: 10px; text-align: center;">
-                <span style="color: #00d2ff; font-weight: bold; font-family: 'Orbitron';">🛰️ STREAMING DATA</span><br>
-                <small>Source: Telecom Global Feed</small>
+            <div style="background: rgba(255, 0, 0, 0.1); border: 1px solid #ff0000; padding: 10px; border-radius: 10px; text-align: center;">
+                <span style="color: #ff0000; font-weight: bold; font-family: 'Orbitron';">🛰️ STREAMING DATA</span><br>
+                <small>Source: Airtel South Circle</small>
             </div>
         """, unsafe_allow_html=True)
     with c3:
@@ -172,35 +172,51 @@ if menu == "Live Operational Center":
     with col_l:
         st.subheader("📡 Real-time Churn Monitoring")
         chart_placeholder = st.empty()
+        status_text = st.empty()
         
-        # Simulate a moving graph
-        chart_data = pd.DataFrame(np.random.randn(20, 3) / 5 + [0.3, 0.5, 0.2], columns=['Current Risk', 'Avg Churn', 'Retention'])
-        fig_live = px.line(chart_data, template="plotly_dark", color_discrete_sequence=['#00d2ff', '#ff4b2b', '#00ff00'])
-        fig_live.update_layout(height=400, margin=dict(l=0, r=0, b=0, t=0))
-        chart_placeholder.plotly_chart(fig_live, use_container_width=True)
-        
-        st.success("Analysis Engine: Predicting customer behavior trends for the next 24 hours...")
-
     with col_r:
         st.subheader("📜 System Logs")
-        log_container = st.container(height=400)
-        logs = [
-            "✅ Connectivity established with Main DB",
-            "🔍 Analyzing 7,043 customer profiles...",
-            "⚠️ High Churn detected in 'Month-to-Month' segments",
-            "🚀 ML Model v2.1 loaded successfully",
-            "📡 Fetching live usage data...",
-            "👤 Customer #4829-Z just updated plan",
-            "📉 Overall retention increased by 0.5%",
-            "🔔 Alert: Unusual uptick in Fiber Optic cancellations",
-            "🛠️ Auto-optimization run complete"
-        ]
-        for log in logs:
-            log_container.code(f"[{time.strftime('%H:%M:%S')}] {log}")
+        log_placeholder = st.empty()
 
-    # Auto-refresh trigger
-    if st.button("🔄 REFRESH LIVE FEED"):
-        st.rerun()
+    if st.button("🚀 START REAL-TIME STREAM", type="primary"):
+        # Initial logs
+        logs = ["✅ Connection established", "🔍 Ingesting feed...", "🚀 ML Model v2.1 loaded"]
+        
+        # Stream simulation
+        data_points = []
+        for i in range(50):
+            # Generate moving data
+            new_val = [np.random.rand() * 0.4 + 0.1, np.random.rand() * 0.3 + 0.5, np.random.rand() * 0.2 + 0.1]
+            data_points.append(new_val)
+            if len(data_points) > 20: data_points.pop(0)
+            
+            # Update Chart
+            fig_live = px.line(pd.DataFrame(data_points, columns=['Risk', 'Retention', 'Avg Churn']), 
+                              template="plotly_dark", color_discrete_sequence=['#ff4b2b', '#00ff00', '#00d2ff'])
+            fig_live.update_layout(height=400, margin=dict(l=0, r=0, b=0, t=0))
+            chart_placeholder.plotly_chart(fig_live, use_container_width=True)
+            
+            # Update Logs
+            if i % 5 == 0:
+                cid = np.random.randint(1000, 9999)
+                logs.insert(0, f"👤 Alert: Airtel Business User #{cid} risk detected")
+            if i % 8 == 0:
+                logs.insert(0, f"📡 Circle Update: TN Loop processed at {time.strftime('%H:%M:%S')}")
+            
+            log_text = "\n".join([f"[{time.strftime('%H:%M:%S')}] {l}" for l in logs[:10]])
+            log_placeholder.code(log_text)
+            
+            status_text.write(f"Streaming Active... iteration {i+1}/50")
+            time.sleep(0.8)
+            
+        st.success("Stream simulation complete. Session saved to history.")
+    else:
+        # Default static view if not streaming
+        chart_data = pd.DataFrame(np.random.randn(20, 3) / 5 + [0.3, 0.5, 0.2], columns=['Risk', 'Retention', 'Avg Churn'])
+        fig_static = px.line(chart_data, template="plotly_dark", color_discrete_sequence=['#ff4b2b', '#00ff00', '#00d2ff'])
+        fig_static.update_layout(height=400, margin=dict(l=0, r=0, b=0, t=0))
+        chart_placeholder.plotly_chart(fig_static, use_container_width=True)
+        log_placeholder.code("System Standby. Click 'Start Real-time Stream' to begin.")
 
 elif menu == "Dashboard Overview":
     st.markdown("<h1 class='report-title'>CUSTOMER CHURN ANALYTICS</h1>", unsafe_allow_html=True)

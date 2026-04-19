@@ -1,5 +1,5 @@
 # 📘 FINAL SEMESTER PROJECT REPORT
-## CUSTOMER CHURN PREDICTION SYSTEM USING LOGISTIC REGRESSION
+## AIRTEL CUSTOMER CHURN PREDICTION SYSTEM USING LOGISTIC REGRESSION
 
 ---
 
@@ -22,7 +22,7 @@ This is to certify that the project report entitled **"Customer Churn Prediction
 ---
 
 ## 📝 ABSTRACT
-Customer churn is one of the most critical metrics for a growing business to evaluate. This project focuses on predicting customer churn in the telecom industry using **Logistic Regression**. By analyzing a dataset of over 7,000 customers, we built a system that identifies patterns in customer behavior (like contract type, tenure, and streaming habits) that lead to cancellation. The final implementation includes an interactive **Streamlit** dashboard that provides real-time risk profiling and visual insights, achieving an accuracy of **~80%**.
+Customer churn is one of the most critical metrics for a growing business like **Bharti Airtel** to evaluate. This project focuses on predicting customer churn in the telecom industry using **Logistic Regression**. By analyzing a dataset of over 7,000 Airtel customers, we built a system that identifies patterns in customer behavior (like contract type, tenure, and streaming habits) that lead to cancellation. The final implementation includes an interactive **Airtel Sentinel** dashboard that provides real-time risk profiling and visual insights, achieving an accuracy of **~80%**.
 
 ---
 
@@ -41,7 +41,7 @@ Customer churn is one of the most critical metrics for a growing business to eva
 
 ## CHAPTER 1: INTRODUCTION
 ### 1.1 Background
-The Telecom industry is one of the fastest-growing sectors globally. However, with multiple service providers like Jio, Airtel, and Vodafone offering competitive plans, retaining customers has become a major challenge. 
+The Telecom industry, led by giants like **Bharti Airtel**, is one of the fastest-growing sectors globally. However, with multiple service providers like Jio and Vodafone offering competitive plans, retaining customers has become a major challenge for Airtel. 
 
 ### 1.2 Problem Statement
 Acquiring a new customer costs 5 to 10 times more than retaining an existing one. Companies lack a real-time tool to predict which customers are unhappy or likely to switch before they actually do.
